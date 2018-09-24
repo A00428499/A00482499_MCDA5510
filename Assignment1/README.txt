@@ -7,3 +7,6 @@ them into a single database table.
 
 The program must log the amount of time it takes to read the files in each directory 
 and the time it takes to write the files to a file using the logger.
+
+All the valid records are in Bhavya.csv and all the logs are in ahuja.log.
+Both the files are present in Assignment1 folder.
