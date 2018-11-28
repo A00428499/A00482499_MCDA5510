@@ -1,0 +1,48 @@
+<!-- Use this file to deploy some handlers/chains and services      -->
+<!-- Two ways to do this:                                           -->
+<!--   java org.apache.axis.client.AdminClient deploy.wsdd          -->
+<!--      after the axis server is running                          -->
+<!-- or                                                             -->
+<!--   java org.apache.axis.utils.Admin client|server deploy.wsdd   -->
+<!--      from the same directory that the Axis engine runs         -->
+
+<deployment
+    xmlns="http://xml.apache.org/axis/wsdd/"
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+
+  <!-- Services from Webservice_CallService WSDL service -->
+
+  <service name="Webservice_Call" provider="java:RPC" style="wrapped" use="literal">
+      <parameter name="wsdlTargetNamespace" value="http://webserviceCall.webservice.com"/>
+      <parameter name="wsdlServiceElement" value="Webservice_CallService"/>
+      <parameter name="schemaQualified" value="http://webserviceCall.webservice.com"/>
+      <parameter name="wsdlServicePort" value="Webservice_Call"/>
+      <parameter name="className" value="com.webservice.webserviceCall.Webservice_CallSoapBindingImpl"/>
+      <parameter name="wsdlPortType" value="Webservice_Call"/>
+      <parameter name="typeMappingVersion" value="1.2"/>
+      <operation name="updateTransaction" qname="operNS:updateTransaction" xmlns:operNS="http://webserviceCall.webservice.com" returnQName="retNS:updateTransactionReturn" xmlns:retNS="http://webserviceCall.webservice.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ID" xmlns:pns="http://webserviceCall.webservice.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:NameOnCard" xmlns:pns="http://webserviceCall.webservice.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:CardNumber" xmlns:pns="http://webserviceCall.webservice.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:UnitPrice" xmlns:pns="http://webserviceCall.webservice.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Quantity" xmlns:pns="http://webserviceCall.webservice.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ExpDate" xmlns:pns="http://webserviceCall.webservice.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="deleteTransaction" qname="operNS:deleteTransaction" xmlns:operNS="http://webserviceCall.webservice.com" returnQName="retNS:deleteTransactionReturn" xmlns:retNS="http://webserviceCall.webservice.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ID" xmlns:pns="http://webserviceCall.webservice.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="createTransaction" qname="operNS:createTransaction" xmlns:operNS="http://webserviceCall.webservice.com" returnQName="retNS:createTransactionReturn" xmlns:retNS="http://webserviceCall.webservice.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ID" xmlns:pns="http://webserviceCall.webservice.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:NameOnCard" xmlns:pns="http://webserviceCall.webservice.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:CardNumber" xmlns:pns="http://webserviceCall.webservice.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:UnitPrice" xmlns:pns="http://webserviceCall.webservice.com" type="tns:double" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:Quantity" xmlns:pns="http://webserviceCall.webservice.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+        <parameter qname="pns:ExpDate" xmlns:pns="http://webserviceCall.webservice.com" type="tns:string" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <operation name="get_Transaction" qname="operNS:get_Transaction" xmlns:operNS="http://webserviceCall.webservice.com" returnQName="retNS:get_TransactionReturn" xmlns:retNS="http://webserviceCall.webservice.com" returnType="rtns:string" xmlns:rtns="http://www.w3.org/2001/XMLSchema" soapAction="" >
+        <parameter qname="pns:ID" xmlns:pns="http://webserviceCall.webservice.com" type="tns:int" xmlns:tns="http://www.w3.org/2001/XMLSchema"/>
+      </operation>
+      <parameter name="allowedMethods" value="updateTransaction deleteTransaction get_Transaction createTransaction"/>
+
+  </service>
+</deployment>
